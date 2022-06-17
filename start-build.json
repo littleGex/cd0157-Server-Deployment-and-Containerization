@@ -1,0 +1,41 @@
+{
+  "projectName": "UdacityDeployStack",
+  "sourceVersion": "sourceVersion",
+  "artifactsOverride": {
+    "type": "type",
+    "location": "location",
+    "path": "path",
+    "namespaceType": "namespaceType",
+    "name": "artifactsOverride-name",
+    "packaging": "packaging"
+  },
+  "buildspecOverride": "buildspecOverride",
+  "cacheOverride": {
+    "location": "cacheOverride-location",
+    "type": "cacheOverride-type"
+  },
+  "certificateOverride": "certificateOverride",
+  "computeTypeOverride": "computeTypeOverride",
+  "environmentTypeOverride": "environmentTypeOverride",
+  "environmentVariablesOverride": {
+    "name": "",
+    "value": "",
+    "type": "PLAINTEXT"
+  },
+  "gitCloneDepthOverride": 0,
+  "imageOverride": "imageOverride",
+  "idempotencyToken": "idempotencyToken",
+  "insecureSslOverride": true,
+  "privilegedModeOverride": true,
+  "queuedTimeoutInMinutesOverride": 5,
+  "reportBuildStatusOverride": true,
+  "timeoutInMinutesOverride": 5,
+  "sourceAuthOverride":{
+    "type": "OAUTH",
+    "resource": "string"
+  },
+  "sourceLocationOverride": "sourceLocationOverride",
+  "serviceRoleOverride": "serviceRoleOverride",
+  "sourceTypeOverride": "sourceTypeOverride"
+}
+
