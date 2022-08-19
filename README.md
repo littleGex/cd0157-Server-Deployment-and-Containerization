@@ -1,5 +1,6 @@
 # Deploying a Flask API
 
+## Introduction
 This is the project starter repo for the course Server Deployment, Containerization, and Testing.
 
 In this project you will containerize and deploy a Flask API to a Kubernetes cluster using Docker, AWS EKS, CodePipeline, and CodeBuild.
@@ -11,8 +12,6 @@ The Flask app that will be used for this project consists of a simple API with t
 - `GET '/contents'`: This requires a valid JWT, and returns the un-encrpyted contents of that token. 
 
 The app relies on a secret set as the environment variable `JWT_SECRET` to produce a JWT. The built-in Flask server is adequate for local development, but not production, so you will be using the production-ready [Gunicorn](https://gunicorn.org/) server when deploying the app.
-
-
 
 ## Prerequisites
 
@@ -48,7 +47,6 @@ python -m pip install --upgrade pip==20.2.3
   * EKSCTL installed in your system. Follow the instructions [available here](https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html#installing-eksctl) or <a href="https://eksctl.io/introduction/#installation" target="_blank">here</a> to download and install `eksctl` utility. 
   * The KUBECTL installed in your system. Installation instructions for kubectl can be found <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/" target="_blank">here</a>. 
 
-
 ## Initial setup
 
 1. Fork the <a href="https://github.com/udacity/cd0157-Server-Deployment-and-Containerization" target="_blank">Server and Deployment Containerization Github repo</a> to your Github account.
@@ -72,7 +70,6 @@ cd cd0157-Server-Deployment-and-Containerization/
 ├── test_main.py  #ToDo
 └── trust.json     #ToDo 
 ```
-
      
 ## Project Steps
 
@@ -86,3 +83,13 @@ Completing the project involves several steps:
 6. Create a CodeBuild stage which will build, test, and deploy your code
 
 For more detail about each of these steps, see the project lesson.
+
+## Cluster Address
+[a471d425d00e5436494f089ff5438766-1155940703.us-east-2.elb.amazonaws.com](a471d425d00e5436494f089ff5438766-1155940703.us-east-2.elb.amazonaws.com)
+
+## Test endpoints
+```shell script
+export URL="a471d425d00e5436494f089ff5438766-1155940703.us-east-2.elb.amazonaws.com"
+export TOKEN=`curl -d '{"email":"test@test.com","password":"test"}' -H "Content-Type: application/json" -X POST $URL/auth  | jq -r '.token'`
+curl --request GET $URL:80/contents -H "Authorization: Bearer ${TOKEN}" | jq
+```
